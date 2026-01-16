@@ -80,7 +80,7 @@ if auto_refresh:
 dd, measured_at, retrieved_at = get_latest_dd_and_measured_time(SCHIPHOL_LOCATION_ID, lookback_hours)
 
 required = mask_required(dd)
-status_text = "MONDKAPJE OP" if required else "OK"
+status_text = "Dringend advies: Mondkapje dragen in rode gebieden" if required else "Dringend advies: Mondkapje dragen in rode gebieden"
 emoji = "😷" if required else "✅"
 
 st.markdown(
@@ -108,6 +108,7 @@ else:
 st.subheader("Tijdstempels")
 st.write(f"**Ophaalmoment:** {retrieved_at.astimezone():%Y-%m-%d %H:%M:%S %Z}")
 st.write(f"**Meetmoment KNMI:** {measured_at.astimezone():%Y-%m-%d %H:%M:%S %Z}" if measured_at else "**Meetmoment KNMI:** onbekend")
+
 
 
 
