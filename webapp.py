@@ -98,6 +98,14 @@ col1, col2 = st.columns(2)
 col1.metric("Windrichting (dd)", "—" if dd is None else f"{dd:.0f}°")
 col2.metric("Station", "Schiphol Airport")
 
+if required:
+    st.image("begane_grond_rood.png")
+    st.image(dak_rood.png)
+else:
+    st.image("begane_grond_groen.png")
+    st.image(dak_groen.png)
+
 st.subheader("Tijdstempels")
 st.write(f"**Ophaalmoment:** {retrieved_at.astimezone():%Y-%m-%d %H:%M:%S %Z}")
 st.write(f"**Meetmoment KNMI:** {measured_at.astimezone():%Y-%m-%d %H:%M:%S %Z}" if measured_at else "**Meetmoment KNMI:** onbekend")
+
