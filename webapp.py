@@ -80,19 +80,10 @@ if auto_refresh:
 dd, measured_at, retrieved_at = get_latest_dd_and_measured_time(SCHIPHOL_LOCATION_ID, lookback_hours)
 
 required = mask_required(dd)
-status_text = "Dringend advies: Mondkapje dragen in rode gebieden" if required else "Dringend advies: Mondkapje dragen in rode gebieden"
-emoji = "😷" if required else "✅"
+status_text = "Dringend advies: Mondkapje dragen in rode gebieden" 
 
-st.markdown(
-    f"""
-    <div style="padding:18px;border-radius:16px;color:white;
-                font-size:34px;font-weight:800;text-align:center;
-                background:{'#d32f2f' if required else '#2e7d32'};">
-        {emoji} {status_text}
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+
+st.title(status_text)
 
 col1, col2 = st.columns(2)
 col1.metric("Windrichting (dd)", "—" if dd is None else f"{dd:.0f}°")
@@ -108,6 +99,7 @@ else:
 st.subheader("Tijdstempels")
 st.write(f"**Ophaalmoment:** {retrieved_at.astimezone():%Y-%m-%d %H:%M:%S %Z}")
 st.write(f"**Meetmoment KNMI:** {measured_at.astimezone():%Y-%m-%d %H:%M:%S %Z}" if measured_at else "**Meetmoment KNMI:** onbekend")
+
 
 
 
