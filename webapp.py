@@ -67,7 +67,7 @@ def get_latest_dd_and_measured_time(location_id: str, lookback_hours: int = 6):
 
 st.set_page_config(page_title="Schiphol Mondkapje Monitor", layout="wide", initial_sidebar_state="collapsed")
 st.title("Schiphol Mondkapje Monitor", text_alignment="center")
-st.caption("Mondkapje alleen bij windrichting van **Oost (90°)** t/m **Zuid (180°)**.", text_alignment="center")
+st.caption("Mondkapje alleen bij windrichting van **Noord-Oost (45°)** t/m **Zuid-West (225°)**.", text_alignment="center")
 
 with st.sidebar:
     auto_refresh = st.toggle("Auto-refresh", value=True)
@@ -99,6 +99,7 @@ else:
 st.subheader("Tijdstempels")
 st.write(f"**Ophaalmoment:** {retrieved_at.astimezone():%Y-%m-%d %H:%M:%S %Z}")
 st.write(f"**Meetmoment KNMI:** {measured_at.astimezone():%Y-%m-%d %H:%M:%S %Z}" if measured_at else "**Meetmoment KNMI:** onbekend")
+
 
 
 
