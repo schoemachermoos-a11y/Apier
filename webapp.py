@@ -6,9 +6,9 @@ SCHIPHOL_LOCATION_ID = "0-20000-0-06240"
 COLLECTION = "10-minute-in-situ-meteorological-observations"
 BASE = f"https://api.dataplatform.knmi.nl/edr/v1/collections/{COLLECTION}"
 
-# Mondkapje: wind VAN oost (90°) t/m zuid (180°)
-EAST_MIN = 90.0
-SOUTH_MAX = 180.0
+# Mondkapje: wind VAN oost (45°) t/m zuid (225°)
+EAST_MIN = 45.0
+SOUTH_MAX = 225.0
 
 def get_token() -> str:
     token = st.secrets.get("KNMI_EDR_TOKEN")
@@ -99,6 +99,7 @@ else:
 st.subheader("Tijdstempels")
 st.write(f"**Ophaalmoment:** {retrieved_at.astimezone():%Y-%m-%d %H:%M:%S %Z}")
 st.write(f"**Meetmoment KNMI:** {measured_at.astimezone():%Y-%m-%d %H:%M:%S %Z}" if measured_at else "**Meetmoment KNMI:** onbekend")
+
 
 
 
