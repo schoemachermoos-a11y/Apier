@@ -90,15 +90,16 @@ col1.metric("Windrichting (dd)", "—" if dd is None else f"{dd:.0f}°")
 col2.metric("Station", "Schiphol Airport")
 
 if required:
-    col1.image("begane_grond_rood.png")
-    col2.image("dak_rood.png")
+    col1.image("begane_grond_rood2.png")
+    col2.image("dak_rood2.png")
 else:
-    col1.image("begane_grond_groen.png")
-    col2.image("dak_groen.png")
+    col1.image("begane_grond_groen2.png")
+    col2.image("dak_groen2.png")
 
 st.subheader("Tijdstempels")
 st.write(f"**Ophaalmoment:** {retrieved_at.astimezone():%Y-%m-%d %H:%M:%S %Z}")
 st.write(f"**Meetmoment KNMI:** {measured_at.astimezone():%Y-%m-%d %H:%M:%S %Z}" if measured_at else "**Meetmoment KNMI:** onbekend")
+
 
 
 
